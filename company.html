@@ -95,45 +95,6 @@
             height: auto;
             margin-right: 10px;
         }
-
-        /* Fix for the product container layout */
-        .product-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Responsive grid */
-            gap: 20px;
-            padding-left: 20px;
-        }
-        .product-card {
-            border: 1px solid #ddd;
-            padding: 20px;
-            text-align: center;
-            background-color: #f9f9f9;
-            min-width: 300px;
-        }
-        .product-image img {
-            width: 100%;
-            height: auto;
-        }
-        .product-card h4 {
-            font-size: 16px;
-            margin: 10px 0;
-        }
-        .product-card p {
-            font-size: 14px;
-            color: #555;
-        }
-        .connect-button {
-            background-color: #007bff;
-            color: white;
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-            margin-top: 10px;
-            font-size: 14px;
-        }
-        .connect-button:hover {
-            background-color: #0056b3;
-        }
     </style>
 </head>
 <body>
@@ -199,14 +160,113 @@
             <br>
 
         </div>
+        
 
-        <div id="product-list" class="product-container"></div>
+        <style>
+            /* Fix for the product container layout */
+            .company-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Responsive grid */
+                gap: 20px;
+                padding-left: 20px;
+            }
+            .company-card {
+                border: 1px solid #ddd;
+                padding: 20px;
+                text-align: center;
+                background-color: #f9f9f9;
+                min-width: 300px;
+                cursor: pointer;
+                position: relative;
+            }
+            .company-header {
+                display: flex;
+                justify-content: space-between; /* Left and right aligned content */
+                align-items: center;
+                margin-bottom: 15px;
+            }
+            .company-info {
+                display: flex;
+                align-items: center;
+            }
+            .company-logo {
+                width: 40px;
+                height: auto;
+                margin-right: 10px;
+            }
+            .company-name {
+                font-size: 16px;
+                font-weight: bold;
+            }
+            .favorite-star {
+                font-size: 24px;
+                color: #ddd; /* Lighter gray color for non-favorited state */
+                cursor: pointer;
+               /*border: 2px solid #ddd;  
+                border-radius: 50%; 
+                padding: 5px;*/
+            }
 
+            .favorite-star.favorited {
+                color: #FFD700; /*  
+                border: 2px solid #FFD700; */
+            }
+            .product-image {
+                position: relative;
+            }
+            .product-image img {
+                width: 100%;
+                height: auto;
+            }
+            .company-card p {
+                font-size: 14px;
+                color: #555;
+            }
+            .connect-button {
+                background-color: #007bff;
+                color: white;
+                padding: 10px;
+                border: none;
+                cursor: pointer;
+                margin-top: 10px;
+                font-size: 14px;
+            }
+            .connect-button:hover {
+                background-color: #0056b3;
+            }
+            .company-card:hover {
+                background-color: #f1f1f1;
+            }
+            .btn-prev, .btn-next {
+                background-color: transparent;
+                border: none;
+                font-size: 24px;
+                color: #333;
+                cursor: pointer;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 10;
+            }
+            .btn-prev {
+                left: 10px;
+            }
+            .btn-next {
+                right: 10px;
+            }
+            .btn-prev:hover, .btn-next:hover {
+                color: #007bff;
+            }
+        </style>
+        
+        <div id="company-list" class="company-container"></div>
+        
         <script>
             const products = [
                 {
                     company: "Shenzhen Gotron Electronic Co.,ltd.",
-                    logo: 
+                    logo: "assets/Shenzhen Gotron Electronic Co/logo.png",
+                    favorite: true,
                     items: [
                         { name: "Uniforma Note 20", price: "$97.00", minOrder: "50 pieces", imgSrc: "https://via.placeholder.com/150" },
                         { name: "Lutecia Note 19", price: "$55.00", minOrder: "50 pieces", imgSrc: "https://via.placeholder.com/150" }
@@ -214,12 +274,16 @@
                 },
                 {
                     company: "APEX TECH LIMITED",
+                    logo: "assets/apex/logo.png",
+                    favorite: false,
                     items: [
                         { name: "Smart Band", price: "$8.29", minOrder: "2 - 4 pieces", imgSrc: "https://via.placeholder.com/150" }
                     ]
                 },
                 {
                     company: "Reference Tech (shenzhen) Limited.",
+                    logo: "assets/Shenzhen Gotron Electronic Co/logo.png",
+                    favorite: true,
                     items: [
                         { name: "Phone Model 1", price: "$1039.00", minOrder: "10 - 499 pieces", imgSrc: "https://via.placeholder.com/150" },
                         { name: "Phone Model 2", price: "$180.00", minOrder: "2 - 9 pieces", imgSrc: "https://via.placeholder.com/150" }
@@ -227,6 +291,8 @@
                 },
                 {
                     company: "Shenzhen Ulewei Electronics Co., Ltd.",
+                    logo: "assets/Shenzhen Gotron Electronic Co/logo.png",
+                    favorite: false,
                     items: [
                         { name: "Camera", price: "$513.90", minOrder: "1 piece", imgSrc: "https://via.placeholder.com/150" },
                         { name: "Gaming Console", price: "$100.00", minOrder: "2 pieces", imgSrc: "https://via.placeholder.com/150" }
@@ -234,43 +300,95 @@
                 },
                 {
                     company: "Shenzhen Richgrand Electronic Co., Ltd.",
+                    logo: "assets/Shenzhen Gotron Electronic Co/logo.png",
+                    favorite: true,
                     items: [
                         { name: "Phone Model 3", price: "$480.00 - $1200.00", minOrder: "1 piece", imgSrc: "https://via.placeholder.com/150" }
                     ]
                 },
                 {
                     company: "Shenzhen South Digital Limited",
+                    logo: "assets/Shenzhen Gotron Electronic Co/logo.png",
+                    favorite: false,
                     items: [
                         { name: "Laptop Model A", price: "$355.00 - $425.00", minOrder: "1 piece", imgSrc: "https://via.placeholder.com/150" }
                     ]
                 }
             ];
-
-            // Function to render products
-            function renderProducts() {
-                const container = document.getElementById('product-list');
+        
+            // Function to render company cards with the first product visible
+            function renderCompanies() {
+                const container = document.getElementById('company-list');
                 container.innerHTML = "";
-                products.forEach(company => {
-                    company.items.forEach(item => {
-                        const productCard = document.createElement('div');
-                        productCard.classList.add('product-card');
-                        productCard.innerHTML = `
-                            <div class="product-image">
-                                <img src="${item.imgSrc}" alt="${item.name}">
+                products.forEach((company, companyIndex) => {
+                    const companyCard = document.createElement('div');
+                    companyCard.classList.add('company-card');
+                    companyCard.setAttribute('data-company-index', companyIndex);  // Add an attribute to identify the company
+        
+                    let currentProductIndex = 0;
+        
+                    // Render the first product
+                    companyCard.innerHTML = `
+                        <div class="company-header">
+                            <div class="company-info">
+                                <img src="${company.logo}" alt="${company.company}" class="company-logo">
+                                <span class="company-name">${company.company}</span>
                             </div>
-                            <h4>${item.name}</h4>
-                            <p>Price: ${item.price}</p>
-                            <p>Min. Order: ${item.minOrder}</p>
-                            <button class="connect-button">Connect</button>
-                        `;
-                        container.appendChild(productCard);
+                            <span class="favorite-star ${company.favorite ? 'favorited' : ''}" onclick="toggleFavorite(${companyIndex})">&#9733;</span>
+                        </div>
+                        <div class="product-image">
+                            <img src="${company.items[currentProductIndex].imgSrc}" alt="${company.items[currentProductIndex].name}">
+                            <button class="btn-prev">&larr;</button>
+                            <button class="btn-next">&rarr;</button>
+                        </div>
+                        <h4 class="product-name">${company.items[currentProductIndex].name}</h4>
+                        <p>Price: ${company.items[currentProductIndex].price}</p>
+                        <p>Min. Order: ${company.items[currentProductIndex].minOrder}</p>
+                        <button class="connect-button">Connect</button>
+                    `;
+        
+                    // Previous button functionality
+                    const prevButton = companyCard.querySelector('.btn-prev');
+                    prevButton.addEventListener('click', () => {
+                        // Update to the previous product
+                        currentProductIndex = (currentProductIndex - 1 + company.items.length) % company.items.length;
+                        updateProductCard(companyCard, company, currentProductIndex);
                     });
+        
+                    // Next button functionality
+                    const nextButton = companyCard.querySelector('.btn-next');
+                    nextButton.addEventListener('click', () => {
+                        // Update to the next product
+                        currentProductIndex = (currentProductIndex + 1) % company.items.length;
+                        updateProductCard(companyCard, company, currentProductIndex);
+                    });
+        
+                    container.appendChild(companyCard);
                 });
             }
-
-            // Call render function
-            renderProducts();
+        
+            // Function to update product info in the same card
+            function updateProductCard(companyCard, company, productIndex) {
+                const product = company.items[productIndex];
+                companyCard.querySelector('.product-image img').src = product.imgSrc;
+                companyCard.querySelector('.product-image img').alt = product.name;
+                companyCard.querySelector('.product-name').textContent = product.name;
+                companyCard.querySelector('p').textContent = `Price: ${product.price}`;
+                const minOrder = companyCard.querySelectorAll('p')[1];
+                minOrder.textContent = `Min. Order: ${product.minOrder}`;
+            }
+        
+            // Function to toggle favorite status
+            function toggleFavorite(companyIndex) {
+                products[companyIndex].favorite = !products[companyIndex].favorite;
+                renderCompanies();
+            }
+        
+            // Call the render function to display companies
+            renderCompanies();
         </script>
+                
+        
 
     </div>
 </body>
