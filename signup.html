@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - China & Africa.com</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #98d2eb; /* 浅蓝色背景 */
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 15px 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .navbar h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar ul li {
+            margin: 0 15px;
+        }
+        .navbar ul li a {
+            text-decoration: none;
+            color: #007bff; /* 蓝色链接 */
+            font-weight: bold; /* 加粗字体 */
+        }
+        .navbar ul li a:hover {
+            text-decoration: underline; /* 悬停时下划线 */
+        }
+        .navbar .signup-button {
+            background-color: #28a745; /* 绿色背景 */
+            color: white; /* 白色文字 */
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold; /* 加粗字体 */
+        }
+        .navbar .signup-button:hover {
+            background-color: #4c8bb8; /* 悬停时的颜色 */
+        }
+        .divider {
+            border-top: 1px solid #dcdcdc; /* 分隔线 */
+            margin: 0;
+        }
+        .container {
+            max-width: 800px; /* 设置最大宽度为800px */
+            margin: auto; /* 居中显示 */
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .goal-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .goal-buttons button {
+            flex: 1;
+            margin: 0 5px;
+            background-color: #97d6e9; /* 蓝色按钮背景 */
+            border: 1px solid #6392c2; /* 蓝色边框 */
+            color: #0c489c; /* 深蓝色文字 */
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .goal-buttons button:hover {
+            background-color: #569ccb; /* 悬停时的颜色 */
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .footer p {
+            font-size: 12px;
+            color: #777;
+        }
+        .cancel-button {
+            background-color: #f8d7da; /* 红色背景 */
+            color: #721c24; /* 红色文字 */
+            border-radius: 20px; /* 设置圆角 */
+        }
+        .register-button {
+            background-color: #28a745; /* 绿色背景 */
+            color: white; /* 白色文字 */
+            border-radius: 20px; /* 设置圆角 */
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <h1>China & Africa.com</h1>
+    <ul>
+        <li>                  </li>
+        <li>                  </li>
+        <li><a href=file:///D:/prototype/Menu.html> <img src="D:\Wechat\WeChat Files\wxid_98947lqp72aa22\FileStorage\File\2024-12\Untitled (2)\Group 89.png" alt="User Icon" style="width: 22px; height: 22px;"></a></li>
+        <li><a href="#"><img src="D:\Wechat\WeChat Files\wxid_98947lqp72aa22\FileStorage\File\2024-12\Untitled (2)\Vector-1.png" alt=User Icon" style="width: 22px; height: 22px;"></a></li>
+        <li><a href="#"><img src="D:\Wechat\WeChat Files\wxid_98947lqp72aa22\FileStorage\File\2024-12\Untitled (2)\Union.png" alt="User Icon" style="width: 22px; height: 22px;"></a></li>
+    </ul>
+    <button class="Welcome-button">Welcome!</button>
+</div>
+<div class="divider"></div>
+
+<div class="container">
+    <h1>SIGN UP</h1>
+    <div class="form-group">
+        <div style="display: inline-flex; align-items: center;">
+            <label style="margin-right: 20px;">
+                <span style="color: red;">*</span> I am a    
+            </label>
+            <label style="margin-right: 10px;">
+                <input type="radio" name="userType" value="supplier"> Supplier
+            </label>
+            <label>
+                <input type="radio" name="userType" value="buyer"> Buyer
+            </label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="name">
+            <img src="D:\prototype\屏幕截图 2024-12-01 214541.png" alt="User Icon" style="width: 22px; height: 22px;"> Name *
+        </label>
+        <input type="text" id="name" required>
+    </div>
+
+    <div class="form-group">
+        <label for="email">
+            <img src="D:\prototype\屏幕截图 2024-12-01 215835.png" alt="Email Icon" style="width: 25px; height: 25px;"> Email *
+        </label>
+        <input type="email" id="email" required>
+    </div>
+
+    <div class="form-group">
+        <label for="password">
+            <img src="D:\prototype\屏幕截图 2024-12-01 220030.png" alt="Password Icon" style="width: 26px; height: 26px;"> Password *
+        </label>
+        <input type="password" id="password" required>
+    </div>
+
+    <div class="form-group">
+        <label for="country">
+            <img src="D:\prototype\屏幕截图 2024-12-01 220048.png" alt="Country Icon" style="width: 26px; height: 26px;"> Choose your country *
+        </label>
+        <select id="country" required>
+            <option value="">Select your country</option>
+            <option value="country1">Country 1</option>
+            <option value="country2">Country 2</option>
+            <!-- Add more countries as needed -->
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="state">State/Province/County/District *</label>
+        <select id="state" required>
+            <option value="">Select your state</option>
+            <option value="state1">State 1</option>
+            <option value="state2">State 2</option>
+            <!-- Add more states as needed -->
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="city">City *</label>
+        <input type="text" id="city" required>
+    </div>
+
+    <div class="form-group">
+        <label>Choose your goal *</label>
+        <div class="goal-buttons">
+            <button type="button">Choose your goal</button>
+            <button type="button">Choose your goal</button>
+            <button type="button">Choose your goal</button>
+        </div>
+        <div class="goal-buttons">
+            <button type="button">Choose your goal</button>
+            <button type="button">Choose your goal</button>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Profile Picture (Drag & Drop or Click to upload) *</label>
+        <input type="file" accept="image/*" required>
+    </div>
+
+    <div class="footer">
+        <p>By clicking "Register" you are agreeing to Terms of Service & Privacy Policy</p>
+        <button type="button" class="cancel-button">CANCEL</button>
+        <button type="submit" class="register-button">REGISTER</button>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>China & Africa.com</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: linear-gradient(to bottom, #a0d8ef, #f0f4f8); /* 蓝底渐变效果 */
+        }
+
+        header {
+            background-color: #ffffff;
+            padding: 15px 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .search-bar {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .search-bar button {
+            padding: 10px 15px;
+            margin-left: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .popular-searches {
+            margin-bottom: 20px;
+        }
+
+        .popular-searches span {
+            margin-right: 10px;
+        }
+
+        .popular-searches button {
+            margin-right: 5px;
+            padding: 5px 10px;
+            background-color: #e0e0e0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .main-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 三列布局 */
+            gap: 20px; /* 卡片之间的间距 */
+            list-style-type: disc; /* 使用圆点列表 */
+            padding-left: 20px; /* 左侧内边距 */
+            line-height: 1.6; /* 增加行距 */
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .browsing-history {
+            margin-top: 10px; /* 添加顶部间距 */
+        }
+
+        .browsing-history-images {
+            display: flex;
+            justify-content: flex-start;
+            margin-top: 10px;
+        }
+
+        .browsing-history-images img {
+            width: 100px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        /* Fix for the product container layout */
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Responsive grid */
+            gap: 20px;
+            padding-left: 20px;
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            text-align: center;
+            background-color: #f9f9f9;
+            min-width: 300px;
+        }
+        .product-image img {
+            width: 100%;
+            height: auto;
+        }
+        .product-card h4 {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        .product-card p {
+            font-size: 14px;
+            color: #555;
+        }
+        .connect-button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .connect-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>China & Africa.com</h1>
+        <div class="user-info">Hi, Jack</div>
+    </header>
+    <div class="container">
+        <div class="search-bar">
+            <input type="text" placeholder="SEARCH">
+            <button>UPLOAD</button>
+        </div>
+        <div class="popular-searches">
+            <span>Popular searches:</span>
+            <button>mobile phone</button>
+            <button>computer</button>
+            <button>iPhone</button>
+            <button>View All</button>
+        </div>
+        <div class="main-cards">
+            <div class="card">
+                <h3>SOURCE BY CATEGORY</h3>
+                <ul>
+                    <li>Automobile manufacturing</li>
+                    <li>Electronics and electrical manufacturing</li>
+                    <li>Chemical manufacturing</li>
+                    <li>Pharmaceutical and medical device manufacturing</li>
+                    <li>Textile and garment manufacturing</li>
+                    <li>Food and beverage manufacturing</li>
+                    <li>Manufacturing of building materials</li>
+                    <li>Aerospace manufacturing</li>
+                    <li>Shipbuilding</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>MESSAGE</h3>
+                <p>NO</p>
+            </div>
+            <div class="card">
+                <h3>WELCOME</h3>
+                <p>Hi, Jack</p>
+                <p>0 Credit score</p>
+                <p>0 Cooperation achieved</p>
+                <h3>BROWSING HISTORY</h3>
+                <div class="browsing-history-images">
+                    <img src="path/to/image1.jpg" alt="Ulefone Note 20 Pro">
+                    <img src="path/to/image2.jpg" alt="iPhone 14 14plus">
+                    <img src="path/to/image3.jpg" alt="Redmi Note 11 Pro">
+                </div>
+            </div>
+            <div class="card personal-info">
+                
+            </div>
+  
+            <div class="card LOGISTICS SITUATION">
+                <h3>LOGISTICS SITUATION</h3>
+                <p>NO</p>
+            </div>
+            <div class="card">
+
+            </div>
+
+            <br>
+
+        </div>
+
+        <div id="product-list" class="product-container"></div>
+
+        <script>
+            const products = [
+                {
+                    company: "Shenzhen Gotron Electronic Co.,ltd.",
+                    logo: 
+                    items: [
+                        { name: "Uniforma Note 20", price: "$97.00", minOrder: "50 pieces", imgSrc: "https://via.placeholder.com/150" },
+                        { name: "Lutecia Note 19", price: "$55.00", minOrder: "50 pieces", imgSrc: "https://via.placeholder.com/150" }
+                    ]
+                },
+                {
+                    company: "APEX TECH LIMITED",
+                    items: [
+                        { name: "Smart Band", price: "$8.29", minOrder: "2 - 4 pieces", imgSrc: "https://via.placeholder.com/150" }
+                    ]
+                },
+                {
+                    company: "Reference Tech (shenzhen) Limited.",
+                    items: [
+                        { name: "Phone Model 1", price: "$1039.00", minOrder: "10 - 499 pieces", imgSrc: "https://via.placeholder.com/150" },
+                        { name: "Phone Model 2", price: "$180.00", minOrder: "2 - 9 pieces", imgSrc: "https://via.placeholder.com/150" }
+                    ]
+                },
+                {
+                    company: "Shenzhen Ulewei Electronics Co., Ltd.",
+                    items: [
+                        { name: "Camera", price: "$513.90", minOrder: "1 piece", imgSrc: "https://via.placeholder.com/150" },
+                        { name: "Gaming Console", price: "$100.00", minOrder: "2 pieces", imgSrc: "https://via.placeholder.com/150" }
+                    ]
+                },
+                {
+                    company: "Shenzhen Richgrand Electronic Co., Ltd.",
+                    items: [
+                        { name: "Phone Model 3", price: "$480.00 - $1200.00", minOrder: "1 piece", imgSrc: "https://via.placeholder.com/150" }
+                    ]
+                },
+                {
+                    company: "Shenzhen South Digital Limited",
+                    items: [
+                        { name: "Laptop Model A", price: "$355.00 - $425.00", minOrder: "1 piece", imgSrc: "https://via.placeholder.com/150" }
+                    ]
+                }
+            ];
+
+            // Function to render products
+            function renderProducts() {
+                const container = document.getElementById('product-list');
+                container.innerHTML = "";
+                products.forEach(company => {
+                    company.items.forEach(item => {
+                        const productCard = document.createElement('div');
+                        productCard.classList.add('product-card');
+                        productCard.innerHTML = `
+                            <div class="product-image">
+                                <img src="${item.imgSrc}" alt="${item.name}">
+                            </div>
+                            <h4>${item.name}</h4>
+                            <p>Price: ${item.price}</p>
+                            <p>Min. Order: ${item.minOrder}</p>
+                            <button class="connect-button">Connect</button>
+                        `;
+                        container.appendChild(productCard);
+                    });
+                });
+            }
+
+            // Call render function
+            renderProducts();
+        </script>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>China & Africa.com</title>
+    <style>
+        /* styles.css */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-color: #f0f4f8;
+    }
+
+    header {
+        background-color: #ffffff;
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+    }
+    .navbar ul li {
+            margin: 0 15px;
+        }
+
+    .container {
+        display: flex;
+    }
+
+    .sidebar {
+        width: 400px;
+        background-color: #e9f1f5;
+        padding: 30px;
+        margin-right: 20px;
+    }
+
+    .sidebar ul li {
+        padding: 10px;
+        cursor: pointer;
+        transition: color 0.3s;
+    }
+
+    .sidebar ul li:hover {
+        color: #0056b3;
+    }
+
+    .content, .content2, .content3 {
+        display: none;
+        padding: 30px;
+    }
+
+    .content ul li {
+        padding: 10px;
+        cursor: pointer;
+        transition: color 0.3s;
+    }
+
+    .content2 ul li {
+        padding: 10px;
+        cursor: pointer;
+        transition: color 0.3s;
+    }
+
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>China & Africa.com</h1>
+        <div class="navbar">
+            <ul>
+                <li><a href="#"> <img src="D:\Wechat\WeChat Files\wxid_98947lqp72aa22\FileStorage\File\2024-12\Untitled (2)\Group 89.png" alt="User Icon" style="width: 22px; height: 22px;"></a></li>
+                <li><a href="#"><img src="D:\Wechat\WeChat Files\wxid_98947lqp72aa22\FileStorage\File\2024-12\Untitled (2)\Vector-1.png" alt=User Icon" style="width: 22px; height: 22px;"></a></li>
+                <li><a href="#"><img src="D:\Wechat\WeChat Files\wxid_98947lqp72aa22\FileStorage\File\2024-12\Untitled (2)\Union.png" alt="User Icon" style="width: 22px; height: 22px;"></a></li>
+            </ul>
+        </div>
+        <div class="user-info">Hi, Jack</div>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>行业</h2>
+            <ul>
+                <li>Automobile manufacturing</li>
+                <li class="active">Electronics and electrical manufacturing</li>
+                <li>Chemical manufacturing</li>
+                <li>Pharmaceutical and medical device manufacturing</li>
+                <li>Textile and garment manufacturing</li>
+                <li>Food and beverage manufacturing</li>
+                <li>Food and beverage manufacturing</li>
+                <li>Manufacturing of building materials</li>
+                <li>Aerospace manufacturing</li>
+                <li>Shipbuilding</li>
+            </ul>
+        </aside>
+        <main class="content">
+            <ul>
+                <li>Manufacture of electronic products</li>
+                <li>Household appliances</li>
+                <li>Industrial electrical equipment</li>
+            </ul>
+        </main>
+        <main class="content2">
+            <ul>
+                <li>Mobile phones</li>
+                <li>Computer</li>
+                <li>Electric motors</li>
+            </ul>
+        </main>
+        <main class="content3">
+            <ul>
+                <li>Component manufacturing</li>
+                <li>Assembly</li>
+                <li>Testing</li>
+            </ul>
+        </main>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const items = document.querySelectorAll('.sidebar ul li');
+            const content = document.querySelector('.content');
+            const content2 = document.querySelector('.content2');
+            const content3 = document.querySelector('.content3');
+
+            let isElectronicsVisible = false;
+
+            items.forEach(item => {
+                item.addEventListener('click', function() {
+                    if (this.textContent.trim() === 'Electronics and electrical manufacturing') {
+                        isElectronicsVisible = !isElectronicsVisible;
+                        content.style.display = isElectronicsVisible ? 'block' : 'none';
+                        content2.style.display = isElectronicsVisible ? 'block' : 'none';
+                    } else {
+                        isElectronicsVisible = false;
+                        content.style.display = 'none';
+                        content2.style.display = 'none';
+                    }
+                });
+            });
+
+            // 处理第二栏的内容
+            const secondColumnItems = document.querySelectorAll('.content ul li');
+            secondColumnItems.forEach(item => {
+                item.addEventListener('mouseover', function() {
+                    if (this.textContent.trim() === 'Manufacture of electronic products') {
+                        content3.style.display = 'block'; // 显示第三栏内容
+                    }
+                });
+                item.addEventListener('mouseout', function() {
+                    if (this.textContent.trim() === 'Manufacture of electronic products') {
+                        content3.style.display = 'none'; // 隐藏第三栏内容
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
