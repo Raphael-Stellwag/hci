@@ -213,10 +213,18 @@
             }
             .product-image {
                 position: relative;
+                width: 100%; /* Make the image responsive to the card width */
+                height: 300px; /* Fixed height to maintain uniformity */
+                display: flex; /* For alignment */
+                justify-content: center; /* Center horizontally */
+                align-items: center; /* Center vertically */
+                overflow: hidden; /* Crop oversized images */
             }
+
             .product-image img {
-                width: 100%;
-                height: auto;
+                max-width: 100%; /* Ensure the image fits within the container width */
+                max-height: 100%; /* Ensure the image fits within the container height */
+                object-fit: contain; /* Maintain aspect ratio and prevent distortion */
             }
             .company-card p {
                 font-size: 14px;
@@ -238,25 +246,39 @@
                 background-color: #f1f1f1;
             }
             .btn-prev, .btn-next {
-                background-color: transparent;
+                background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
                 border: none;
-                font-size: 24px;
-                color: #333;
+                font-size: 48px; /* Larger arrow size */
+                color: white; /* White arrow for better contrast */
                 cursor: pointer;
                 position: absolute;
                 top: 50%;
                 transform: translateY(-50%);
                 z-index: 10;
+                width: 40px; /* Reduced circular button width */
+                height: 40px; /* Reduced circular button height */
+                border-radius: 50%; /* Circular shape */
+                display: flex;
+                align-items: self-end; /* Vertically center the arrow */
+                justify-content: center; /* Horizontally center the arrow */
+                padding: 0; /* Remove padding to avoid shifting */
             }
+
             .btn-prev {
-                left: 10px;
+                left: 10px; /* Position on the left */
             }
+
             .btn-next {
-                right: 10px;
+                right: 10px; /* Position on the right */
             }
+
             .btn-prev:hover, .btn-next:hover {
-                color: #007bff;
+                background-color: rgba(0, 0, 0, 0.7); /* Darker background on hover */
+                color: #FFD700; /* Gold arrow color on hover */
+                transform: translateY(-50%) scale(1.1); /* Slightly enlarge on hover */
+                transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover transition */
             }
+
             .company-main-products {
                 font-weight: light;
                 text-align: left;
