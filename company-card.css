@@ -1,0 +1,137 @@
+
+            /* Fix for the product container layout */
+            .company-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Responsive grid */
+                gap: 20px;
+                padding-left: 20px;
+            }
+            .company-card {
+                border: 1px solid #ddd;
+                padding: 20px;
+                text-align: center;
+                background-color: #f9f9f9;
+                min-width: 300px;
+                cursor: pointer;
+                position: relative;
+            }
+            .company-header {
+                display: flex;
+                justify-content: space-between; /* Left and right aligned content */
+                align-items: center;
+                margin-bottom: 15px;
+                height: 50px;
+            }
+            .company-content {
+                height: 200px; /* Set a fixed height for the text content */
+                overflow: hidden; /* Hide overflow if the content exceeds */
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+            }
+            .company-info {
+                display: flex;
+                align-items: center;
+            }
+            .company-logo {
+                width: 40px;
+                height: auto;
+                margin-right: 10px;
+            }
+            .company-name {
+                font-size: 16px;
+                font-weight: bold;
+            }
+            .favorite-star {
+                font-size: 24px;
+                color: #ddd; /* Lighter gray color for non-favorited state */
+                cursor: pointer;
+               /*border: 2px solid #ddd;  
+                border-radius: 50%; 
+                padding: 5px;*/
+            }
+
+            .favorite-star.favorited {
+                color: #FFD700; /*  
+                border: 2px solid #FFD700; */
+            }
+            .product-image {
+                position: relative;
+                width: 100%; /* Make the image responsive to the card width */
+                height: 300px; /* Fixed height to maintain uniformity */
+                display: flex; /* For alignment */
+                justify-content: center; /* Center horizontally */
+                align-items: center; /* Center vertically */
+                overflow: hidden; /* Crop oversized images */
+            }
+
+            .product-image img {
+                max-width: 100%; /* Ensure the image fits within the container width */
+                max-height: 100%; /* Ensure the image fits within the container height */
+                object-fit: contain; /* Maintain aspect ratio and prevent distortion */
+            }
+            .company-card p {
+                font-size: 14px;
+                color: #555;
+            }
+            .connect-button {
+                background-color: #007bff;
+                color: white;
+                padding: 10px;
+                border: none;
+                cursor: pointer;
+                margin-top: 10px;
+                font-size: 14px;
+            }
+            .connect-button:hover {
+                background-color: #0056b3;
+            }
+            .company-card:hover {
+                background-color: #f1f1f1;
+            }
+            .btn-prev, .btn-next {
+                background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+                border: none;
+                font-size: 48px; /* Larger arrow size */
+                color: white; /* White arrow for better contrast */
+                cursor: pointer;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 10;
+                width: 40px; /* Reduced circular button width */
+                height: 40px; /* Reduced circular button height */
+                border-radius: 50%; /* Circular shape */
+                display: flex;
+                align-items: self-end; /* Vertically center the arrow */
+                justify-content: center; /* Horizontally center the arrow */
+                padding: 0; /* Remove padding to avoid shifting */
+            }
+
+            .btn-prev {
+                left: 10px; /* Position on the left */
+            }
+
+            .btn-next {
+                right: 10px; /* Position on the right */
+            }
+
+            .btn-prev:hover, .btn-next:hover {
+                background-color: rgba(0, 0, 0, 0.7); /* Darker background on hover */
+                color: #FFD700; /* Gold arrow color on hover */
+                transform: translateY(-50%) scale(1.1); /* Slightly enlarge on hover */
+                transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover transition */
+            }
+
+            .company-main-products {
+                font-weight: light;
+                text-align: left;
+            }
+            .company-service-guarantees {
+                text-align: left;
+            }
+            .company-service-guarantees-description {
+                text-align: left;
+                font-weight: bold;
+            } 
