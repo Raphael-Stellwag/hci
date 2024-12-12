@@ -184,6 +184,15 @@
                 justify-content: space-between; /* Left and right aligned content */
                 align-items: center;
                 margin-bottom: 15px;
+                height: 50px;
+            }
+            .company-content {
+                height: 200px; /* Set a fixed height for the text content */
+                overflow: hidden; /* Hide overflow if the content exceeds */
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
             }
             .company-info {
                 display: flex;
@@ -488,11 +497,13 @@
                             </div>
                             <span class="favorite-star ${company.favorite ? 'favorited' : ''}" onclick="toggleFavorite(${companyIndex})">&#9733;</span>
                         </div>
-                        <p class="company-main-products">Main products: ${mainProducts}</p>
-                        <p class="company-service-guarantees-description">SERVICE GUARANTEE</p>
-                        <ul class="company-service-guarantees">
-                            ${serviceGuarentees}
-                        </ul>
+                        <div class="company-content">
+                            <p class="company-main-products">Main products: ${mainProducts}</p>
+                            <p class="company-service-guarantees-description">SERVICE GUARANTEE</p>
+                            <ul class="company-service-guarantees">
+                                ${serviceGuarentees}
+                            </ul>
+                        </div>
                         <div class="product-image">
                             <img src="${company.items[currentProductIndex].imgSrc}" alt="${company.items[currentProductIndex].name}">
                             <button class="btn-prev">&larr;</button>
