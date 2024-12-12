@@ -85,7 +85,7 @@
     </header>
     <div class="container">
         <aside class="sidebar">
-            <h2>行业</h2>
+            <h2>Industries</h2>
             <ul>
                 <li>Automobile manufacturing</li>
                 <li class="active">Electronics and electrical manufacturing</li>
@@ -140,6 +140,7 @@
                         isElectronicsVisible = false;
                         content.style.display = 'none';
                         content2.style.display = 'none';
+                        content3.style.display = 'none';
                     }
                 });
             });
@@ -149,12 +150,13 @@
             secondColumnItems.forEach(item => {
                 item.addEventListener('mouseover', function() {
                     if (this.textContent.trim() === 'Manufacture of electronic products') {
-                        content3.style.display = 'block'; // 显示第三栏内容
+                        content2.style.display = 'block'; // 显示第三栏内容
+                        content3.style.display = 'none'
                     }
                 });
                 item.addEventListener('mouseout', function() {
                     if (this.textContent.trim() === 'Manufacture of electronic products') {
-                        content3.style.display = 'none'; // 隐藏第三栏内容
+                        content2.style.display = 'none'; // 隐藏第三栏内容
                     }
                 });
             });
