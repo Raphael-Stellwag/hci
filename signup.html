@@ -77,11 +77,14 @@
             margin-bottom: 5px;
         }
         input, select {
-            width: 100%;
+            width: calc(100% - 80px);
             padding: 10px;
             margin-top: 5px;
             border: 1px solid #ccc;
             border-radius: 4px;
+        }
+        .input-short {
+            width: calc(calc(100% - 80px)/3 - 18px);
         }
         .goal-buttons {
             display: flex;
@@ -119,6 +122,33 @@
             color: white; /* 白色文字 */
             border-radius: 20px; /* 设置圆角 */
         }
+
+        #drop-area {
+            width: 100%;
+            height: 200px;
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            text-align: center;
+            line-height: 200px;
+            color: #aaa;
+            font-size: 16px;
+            position: relative;
+        }
+
+        #drop-area.hover {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        #file-input {
+            display: none;
+        }
+
+        #drop-area p {
+            margin: 0;
+        }
+
+        
     </style>
 </head>
 <body>
@@ -128,9 +158,9 @@
     <ul>
         <li>                  </li>
         <li>                  </li>
-        <li><a href=file:///D:/prototype/Menu.html> <img src="D:\Wechat\WeChat Files\wxid_98947lqp72aa22\FileStorage\File\2024-12\Untitled (2)\Group 89.png" alt="User Icon" style="width: 22px; height: 22px;"></a></li>
-        <li><a href="#"><img src="D:\Wechat\WeChat Files\wxid_98947lqp72aa22\FileStorage\File\2024-12\Untitled (2)\Vector-1.png" alt=User Icon" style="width: 22px; height: 22px;"></a></li>
-        <li><a href="#"><img src="D:\Wechat\WeChat Files\wxid_98947lqp72aa22\FileStorage\File\2024-12\Untitled (2)\Union.png" alt="User Icon" style="width: 22px; height: 22px;"></a></li>
+        <li><a href=Menu.html> <img src="assets/images(1)/images/Group 89.png" alt="User Icon" style="width: 22px; height: 22px;"></a></li>
+        <li><a href="#"><img src="assets/images(1)/images/Vector-1.png" alt=User Icon" style="width: 22px; height: 22px;"></a></li>
+        <li><a href="#"><img src="assets/images(1)/images/Union.png" alt="User Icon" style="width: 22px; height: 22px;"></a></li>
     </ul>
     <button class="Welcome-button">Welcome!</button>
 </div>
@@ -154,50 +184,43 @@
 
     <div class="form-group">
         <label for="name">
-            <img src="D:\prototype\屏幕截图 2024-12-01 214541.png" alt="User Icon" style="width: 22px; height: 22px;"> Name *
+            <img src="assets/icons/user.svg" alt="User Icon" style="width: 24px; height: 24px;"> *&emsp;
+            <input type="text" id="name" placeholder="Name" required>
         </label>
-        <input type="text" id="name" required>
     </div>
 
     <div class="form-group">
         <label for="email">
-            <img src="D:\prototype\屏幕截图 2024-12-01 215835.png" alt="Email Icon" style="width: 25px; height: 25px;"> Email *
+            <img src="assets/icons/email.svg" alt="Email Icon" style="width: 24px; height: 24px;"> *&emsp;
+            <input type="text" id="email" placeholder="Email" required>
         </label>
-        <input type="email" id="email" required>
     </div>
 
     <div class="form-group">
         <label for="password">
-            <img src="D:\prototype\屏幕截图 2024-12-01 220030.png" alt="Password Icon" style="width: 26px; height: 26px;"> Password *
+            <img src="assets/icons/password.svg" alt="Password Icon" style="width: 24px; height: 24px;"> *&emsp;
+            <input type="text" id="password" placeholder="Password" required>
         </label>
-        <input type="password" id="password" required>
     </div>
 
     <div class="form-group">
-        <label for="country">
-            <img src="D:\prototype\屏幕截图 2024-12-01 220048.png" alt="Country Icon" style="width: 26px; height: 26px;"> Choose your country *
-        </label>
-        <select id="country" required>
-            <option value="">Select your country</option>
-            <option value="country1">Country 1</option>
-            <option value="country2">Country 2</option>
-            <!-- Add more countries as needed -->
-        </select>
-    </div>
+        <img src="assets/icons/country.svg" alt="Country Icon" style="width: 24px; height: 24px;"> *&emsp;
+        <input type="text" class="input-short" list="country-list" id="country" placeholder="Country" required>
+        <datalist id="country-list">
+            <option>China</option>
+            <option>South Africa</option>
+            <option>Add more</option>
+        </datalist>
+        
+        <input type="text" list="state-list" id="state" class="input-short" placeholder="State/Province/County/District" required>
+        <datalist id="state-list">
+            <option>State 1</option>
+            <option>State 2</option>
+            <option>Add more</option>
+        </datalist>
 
-    <div class="form-group">
-        <label for="state">State/Province/County/District *</label>
-        <select id="state" required>
-            <option value="">Select your state</option>
-            <option value="state1">State 1</option>
-            <option value="state2">State 2</option>
-            <!-- Add more states as needed -->
-        </select>
-    </div>
+        <input type="text" id="city" placeholder="City" class="input-short" required>
 
-    <div class="form-group">
-        <label for="city">City *</label>
-        <input type="text" id="city" required>
     </div>
 
     <div class="form-group">
@@ -213,10 +236,58 @@
         </div>
     </div>
 
+
+    <div id="drop-area">
+        <p><img src="assets/icons/upload.svg" style="width: 30px; vertical-align: middle; color: black;"> REOUlRED: Drag & Drop or Click to add 1 profile picture maximum (5MB limit). More can be added later!</p>
+        <input type="file" id="file-input" accept="image/*" required/>
+    </div>
+
+    <script>
+        const dropArea = document.getElementById('drop-area');
+        const fileInput = document.getElementById('file-input');
+
+        // Prevent default behavior (Prevent file from being opened)
+        dropArea.addEventListener('dragover', (event) => {
+            event.preventDefault();
+            dropArea.classList.add('hover');
+        });
+
+        dropArea.addEventListener('dragleave', () => {
+            dropArea.classList.remove('hover');
+        });
+
+        dropArea.addEventListener('drop', (event) => {
+            event.preventDefault();
+            dropArea.classList.remove('hover');
+            const files = event.dataTransfer.files;
+
+            if (files.length > 0) {
+                const file = files[0];
+                alert(`File selected: ${file.name}`);
+                // You can send the file to your server here using XMLHttpRequest or Fetch API
+            }
+        });
+
+        // Open file dialog when clicking on the drop area
+        dropArea.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        // Handle file selection from file dialog
+        fileInput.addEventListener('change', () => {
+            const file = fileInput.files[0];
+            if (file) {
+                alert(`File selected: ${file.name}`);
+                // You can send the file to your server here using XMLHttpRequest or Fetch API
+            }
+        });
+    </script>
+
+    <!--
     <div class="form-group">
         <label>Profile Picture (Drag & Drop or Click to upload) *</label>
         <input type="file" accept="image/*" required>
-    </div>
+    </div>-->
 
     <div class="footer">
         <p>By clicking "Register" you are agreeing to Terms of Service & Privacy Policy</p>
