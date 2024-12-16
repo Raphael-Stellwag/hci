@@ -60,7 +60,7 @@
             margin-bottom: 5px;
         }
         .form-textarea {
-            width: 100%;
+            width: calc(100% - 20px);
             height: 80px;
             padding: 10px;
             border: 1px solid #ccc;
@@ -69,8 +69,7 @@
         }
         .form-button {
             display: block;
-            width: 100%;
-            padding: 10px;
+            padding: 10px 20px 10px 20px;
             background-color: #007bff;
             color: #fff;
             border: none;
@@ -126,11 +125,12 @@
                 <hr>
 
                 <form>
-                    <label style="form-label" for="requirements">Purchasing Requirements:</label>
+                    <br>
+                    <label class="form-label" for="requirements">Purchasing Requirements:</label>
+                    <br>
+                    <textarea class="form-textarea" id="requirements" placeholder="Please describe in detail&#10;For example: the product name, color, size, material, purchase quantity, etc."></textarea>
                     <br><br>
-                    <textarea id="requirements" placeholder="Please describe in detail&#10;For example: the product name, color, size, material, purchase quantity, etc."></textarea>
-                    <br><br>
-                    <button type="submit">Send</button>
+                    <button class="form-button" type="submit">Send</button>
                 </form>
                 
             </div>
