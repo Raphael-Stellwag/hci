@@ -24,45 +24,6 @@
             padding: 20px;
         }
 
-        .search-bar {
-            display: flex;
-            margin-bottom: 10px;
-        }
-
-        .search-bar input {
-            flex: 1;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        .search-bar button {
-            padding: 10px 15px;
-            margin-left: 10px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .popular-searches {
-            margin-bottom: 20px;
-        }
-
-        .popular-searches span {
-            margin-right: 10px;
-        }
-
-        .popular-searches button {
-            margin-right: 5px;
-            padding: 5px 10px;
-            background-color: #e0e0e0;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
         .main-cards {
             display: flex;
             gap: 20px; /* Space between the cards */
@@ -85,28 +46,40 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             flex: 1; /* Makes cards flexible */
         }
-
-        .middle-cards {
-            display: flex;
-            flex-direction: column; /* Stack message and logistics situation vertically */
-            gap: 10px; /* Space between the message and logistics situation */
-            flex: 1; /* Takes up equal space */
+        .form-container {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 400px;
         }
-
-        .browsing-history {
-            margin-top: 10px; /* 添加顶部间距 */
+        .form-label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
         }
-
-        .browsing-history-images {
-            display: flex;
-            justify-content: flex-start;
-            margin-top: 10px;
+        .form-textarea {
+            width: 100%;
+            height: 80px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: none;
         }
-
-        .browsing-history-images img {
-            width: 50px;
-            height: 50px;
-            margin-right: 10px;
+        .form-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .form-button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -127,17 +100,43 @@
         <br>
         <div class="main-cards">
             <div class="card-full-width">
-                <p><b>PRODUCT</b>&emsp;|&emsp;REVIEW</p>
+                <p><b>PRODUCT</b>&emsp;|&emsp;REVIEW&emsp;|&emsp;CONNECT</p>
             </div>
         </div>
 
         <br>
 
         <!-- Product Cards -->
-        <link rel="stylesheet" href="company-card.css">
-        <div id="company-list" class="company-container"></div>
-        <script src="company-card.js"></script>
-    
+        <link rel="stylesheet" href="company-detail.css">
+        <div id="product-list" class="company-container"></div>
+        <script src="company-data.js"></script>
+        <script src="company-detail.js"></script>
+        
+        <br>
+
+        
+
+        <br>
+
+
+        <div class="main-cards">
+            <div class="card-full-width">
+                <p><b>CONENCT</b></p>
+
+                <hr>
+
+                <form>
+                    <label style="form-label" for="requirements">Purchasing Requirements:</label>
+                    <br><br>
+                    <textarea id="requirements" placeholder="Please describe in detail&#10;For example: the product name, color, size, material, purchase quantity, etc."></textarea>
+                    <br><br>
+                    <button type="submit">Send</button>
+                </form>
+                
+            </div>
+        </div>
+
+
     </div>
 </body>
 </html>
