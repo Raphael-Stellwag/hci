@@ -8,6 +8,7 @@ function renderCompanies() {
         const companyCard = document.createElement('div');
         companyCard.classList.add('company-card');
         companyCard.setAttribute('data-company-index', companyIndex);  // Add an attribute to identify the company
+        companyCard.dataset.id = companyIndex;
 
         let currentProductIndex = 0;
 
@@ -24,7 +25,7 @@ function renderCompanies() {
                     <img src="${company.logo}" alt="${company.company}" class="company-logo">
                     <span class="company-name">${company.company}</span>
                 </div>
-                <span class="favorite-star ${company.favorite ? 'favorited' : ''}" onclick="toggleFavorite(${companyIndex})">&#9733;</span>
+                <span class="favorite-star ${company.favorite ? 'favorited' : ''}"">&#9733;</span>
             </div>
             <div class="company-content">
                 <p class="company-main-products">Main products: ${mainProducts}</p>
@@ -46,7 +47,9 @@ function renderCompanies() {
 
         // Previous button functionality
         const prevButton = companyCard.querySelector('.btn-prev');
-        prevButton.addEventListener('click', () => {
+        prevButton.addEventListener('click', (event) => {
+            event.stopPropagation();
+
             // Update to the previous product
             currentProductIndex = (currentProductIndex - 1 + company.items.length) % company.items.length;
             updateProductCard(companyCard, company, currentProductIndex);
@@ -54,13 +57,33 @@ function renderCompanies() {
 
         // Next button functionality
         const nextButton = companyCard.querySelector('.btn-next');
-        nextButton.addEventListener('click', () => {
+        nextButton.addEventListener('click', (event) => {
+            event.stopPropagation();
+
             // Update to the next product
             currentProductIndex = (currentProductIndex + 1) % company.items.length;
             updateProductCard(companyCard, company, currentProductIndex);
         });
 
+        const favoriteStar = companyCard.querySelector('.favorite-star');
+        favoriteStar.addEventListener('click', (event) => {
+            event.stopPropagation();
+
+            // Toggle the favorite boolean
+            products[companyCard.dataset.id].favorite = !products[companyCard.dataset.id].favorite;
+            renderCompanies();
+        });
+       
         container.appendChild(companyCard);
+    });
+
+    // Add click event to redirect to details page
+    container.addEventListener('click', function (event) {
+        const card = event.target.closest('.company-card');
+        if (card) {
+            const companyId = card.dataset.id;
+            window.location.href = `company-detail.html?id=${companyId}`;
+        }
     });
 }
 
@@ -72,12 +95,6 @@ function updateProductCard(companyCard, company, productIndex) {
     companyCard.querySelector('.product-name').textContent = product.name;
     companyCard.querySelector('.product-price').textContent = `Price: ${product.price.toFixed(2)} $`;
     companyCard.querySelector('.product-min-order').textContent = `Min. Order: ${product.minOrder}`;
-}
-
-// Function to toggle favorite status
-function toggleFavorite(companyIndex) {
-    products[companyIndex].favorite = !products[companyIndex].favorite;
-    renderCompanies();
 }
 
 // Call the render function to display companies
