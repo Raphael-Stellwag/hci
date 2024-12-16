@@ -82,7 +82,7 @@ function renderCompanies() {
         const card = event.target.closest('.company-card');
         if (card) {
             const companyId = card.dataset.id;
-            window.location.href = `company-detail.html?id=${companyId}`;
+            window.location.href = `company-detail.html#${companyId}`;
         }
     });
 }

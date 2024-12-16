@@ -55,7 +55,7 @@
             width: 400px;
         }
         .form-label {
-            font-weight: bold;
+            /*font-weight: bold;*/
             display: block;
             margin-bottom: 5px;
         }
@@ -80,6 +80,29 @@
         .form-button:hover {
             background-color: #0056b3;
         }
+        .company-logo {
+            height: 100px;
+            margin-right: 10px;
+        }
+        .company-name {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .company-favourite {
+            margin-left: auto;
+            font-size: 24px;
+            color: #ddd;
+            cursor: pointer;
+        }
+        .company-main-products {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .favorited {
+            color: #FFD700;
+            border: 2px solid #FFD700;
+        }
     </style>
 </head>
 <body>
@@ -91,10 +114,43 @@
         
         <div class="main-cards">
             <div class="card-full-width">
-                <h3>Company name</h3>
-                Other stuff
+                <div style="display: flex; align-items: center;">
+                    <img id="company-logo" class="company-logo" src="assets/icons/plus.png"></img>
+                    <span id="company-name" class="company-name">Company name</span>
+                    <span id="company-favourite" class="company-favourite">★</span>
+                </div>
+                <span id="company-main-products" class="company-main-products">Main Products</span>
+                <br><br>
+                <span >Service Guarentees:</span>
+                <ul id="company-service-guarentees" class="company-service-guarentees"></ul>
             </div>
         </div>
+
+        <script src="company-data.js"></script>
+        <script>
+            companyId = window.location.hash;
+            company = products[companyId.substring(1)];
+
+            document.getElementById("company-logo").src = company.logo;
+            document.getElementById("company-name").innerText = company.company;
+            if (company.favorite) {
+                document.getElementById("company-favourite").classList += " favorited";
+            }
+
+
+
+            mainProducts = company.mainProducts.join(", ");
+            mainProducts = "Main products: " + mainProducts;
+
+            document.getElementById("company-main-products").innerText = mainProducts;
+
+            serviceGuarentees = "";
+            company.serviceGuarentees.forEach(element => {
+                serviceGuarentees+="<li>" + element + "</li>"
+            });
+
+            document.getElementById("company-service-guarentees").innerHTML = serviceGuarentees
+        </script>
 
         <br>
         <div class="main-cards">
@@ -107,10 +163,7 @@
 
         <!-- Product Cards -->
         <link rel="stylesheet" href="company-detail.css">
-        <div id="product-list" class="company-container"></div>
-        <script src="company-data.js"></script>
-        <script src="company-detail.js"></script>
-        
+        <div id="product-list" class="products-container"></div>        
         <br>
 
         
