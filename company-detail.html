@@ -102,6 +102,23 @@
         .favorited {
             color: #FFD700;
         }
+
+
+        #leftSide {
+            flex: 1;
+        }
+
+        #rightSide img {
+            width: 300px;
+            height: auto; /* Maintains the image's aspect ratio */
+        }
+
+        #leftRightContainer {
+            display: flex; /* Enables horizontal alignment */
+            justify-content: space-between; /* Space between the two sections */
+            align-items: center; /* Vertically aligns content */
+            gap: 20px; /* Adds space between the left and right sections */
+        }
     </style>
 </head>
 <body>
@@ -120,12 +137,13 @@
                 </div>
                 <span id="company-main-products" class="company-main-products">Main Products</span>
                 <br><br>
-                <div>
-                    <div #leftSide>
+                <div id="leftRightContainer">
+                    <div id="leftSide">
+                        <hr style="margin: 1em 0em 1em 0em;"></hr>
                         <span >Service Guarantees:</span>
                         <ul id="company-service-Guarantees" class="company-service-Guarantees"></ul>
                     </div>
-                    <div #rightSide>
+                    <div id="rightSide">
                         <img style="width: 300px;" src="assets/images/image.png">
                     </div>
                 </div>
@@ -179,7 +197,7 @@
 
         <div class="main-cards">
             <div class="card-full-width">
-                <p><b>CONENCT</b></p>
+                <p><b>CONNECT</b></p>
 
                 <hr>
 
