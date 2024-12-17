@@ -120,55 +120,60 @@
             gap: 20px; /* Adds space between the left and right sections */
         }
 
-        /* Product card styles */
+        /* Product Section */
         .products-container {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
-            justify-content: center;
         }
 
         .product-card {
-            background: #fff;
+            background-color: #fff;
             border: 1px solid #ddd;
             border-radius: 8px;
-            width: 300px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             padding: 15px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
-        .product-card img {
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-image {
             width: 100%;
-            height: auto;
-            border-radius: 5px;
+            border-radius: 6px;
+            object-fit: cover;
         }
 
-        .product-card h3 {
-            font-size: 18px;
+        .product-name {
+            font-size: 1.1em;
+            font-weight: bold;
             margin: 10px 0 5px;
         }
 
-        .product-card p {
-            font-size: 14px;
+        .product-description {
+            font-size: 0.9em;
             color: #666;
-            margin: 5px 0;
+            margin-bottom: 10px;
+            min-height: 40px;
         }
 
-        .product-card span {
-            display: block;
+        .product-price {
+            font-size: 1em;
             font-weight: bold;
-            margin: 5px 0;
-            color: #333;
-        }
-
-        .product-card .price {
             color: #007bff;
-            font-size: 16px;
+        }
+
+        .product-min-order {
+            font-size: 0.9em;
+            color: #555;
+            margin-top: 5px;
         }
 
 
-        
+
     </style>
 </head>
 <body>
@@ -263,12 +268,12 @@
                 productCard.className = "product-card";
 
                 productCard.innerHTML = `
-                    <img src="${product.imgSrc}" alt="${product.name}">
-                    <h3>${product.name}</h3>
-                    <p>${product.description}</p>
-                    <span class="price">${product.price}</span>
-                    <span>${product.minOrder}</span>
-                `;
+                <img src="${product.imgSrc}" alt="${product.name}" class="product-image">
+                <div class="product-name">${product.name}</div>
+                <div class="product-description">${product.description}</div>
+                <div class="product-price">${product.price}</div>
+                <div class="product-min-order">${product.minOrder}</div>
+            `;
 
                 productList.appendChild(productCard);
             });
