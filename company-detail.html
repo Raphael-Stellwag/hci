@@ -119,6 +119,56 @@
             align-items: center; /* Vertically aligns content */
             gap: 20px; /* Adds space between the left and right sections */
         }
+
+        /* Product card styles */
+        .products-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .product-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 300px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .product-card h3 {
+            font-size: 18px;
+            margin: 10px 0 5px;
+        }
+
+        .product-card p {
+            font-size: 14px;
+            color: #666;
+            margin: 5px 0;
+        }
+
+        .product-card span {
+            display: block;
+            font-weight: bold;
+            margin: 5px 0;
+            color: #333;
+        }
+
+        .product-card .price {
+            color: #007bff;
+            font-size: 16px;
+        }
+
+
+        
     </style>
 </head>
 <body>
@@ -130,7 +180,7 @@
         
         <div class="main-cards">
             <div class="card-full-width">
-                <div style="display: flex; align-items: center;">
+                <div style="display: flex; align-items: center; padding-bottom: 10px;">
                     <img id="company-logo" class="company-logo" src="assets/icons/plus.png"></img>
                     <span id="company-name" class="company-name">Company name</span>
                     <span id="company-favourite" class="company-favourite">★</span>
@@ -139,14 +189,45 @@
                 <br><br>
                 <div id="leftRightContainer">
                     <div id="leftSide">
+                        
+                        <span><b style="font-size: 20px;">4.7</b> <span style="font-size: 12px;">68 Reviews</span></span>
+                        
                         <hr style="margin: 1em 0em 1em 0em;"></hr>
-                        <span >Service Guarantees:</span>
+                        
+                        <span>Avg response time: <b>5h</b></span>
+                        <br>
+                        <span>On-time delivery rate: <b>100.00%</b></span>
+                        
+                        <hr style="margin: 1em 0em 1em 0em;"></hr>
+                        <span><b>Service Guarantees:</b></span>
                         <ul id="company-service-Guarantees" class="company-service-Guarantees"></ul>
                     </div>
                     <div id="rightSide">
                         <img style="width: 300px;" src="assets/images/image.png">
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <br>
+        <div class="main-cards">
+            <div class="card-full-width">
+                <p><b>PRODUCT</b>&emsp;|&emsp;REVIEW&emsp;|&emsp;CONNECT</p>
+            </div>
+        </div>
+        <br>
+
+        <br>
+
+
+        <div class="main-cards">
+            <div class="card-full-width">
+                <p><b>PRODUCT</b></p>
+
+                <hr>
+                <br>
+
+                <div id="product-list" class="products-container"></div>
             </div>
         </div>
 
@@ -174,16 +255,28 @@
             });
 
             document.getElementById("company-service-Guarantees").innerHTML = serviceGuarantees
+        
+            const productList = document.getElementById("product-list");
+
+            company.items.forEach(product => {
+                const productCard = document.createElement("div");
+                productCard.className = "product-card";
+
+                productCard.innerHTML = `
+                    <img src="${product.imgSrc}" alt="${product.name}">
+                    <h3>${product.name}</h3>
+                    <p>${product.description}</p>
+                    <span class="price">${product.price}</span>
+                    <span>${product.minOrder}</span>
+                `;
+
+                productList.appendChild(productCard);
+            });
+
+        
+        
         </script>
 
-        <br>
-        <div class="main-cards">
-            <div class="card-full-width">
-                <p><b>PRODUCT</b>&emsp;|&emsp;REVIEW&emsp;|&emsp;CONNECT</p>
-            </div>
-        </div>
-
-        <br>
 
         <!-- Product Cards -->
         <link rel="stylesheet" href="company-detail.css">
