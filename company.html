@@ -19,6 +19,45 @@
             justify-content: space-between;
             align-items: center;
         }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 15px 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .navbar h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar ul li {
+            margin: 0 15px;
+        }
+        .navbar ul li a {
+            text-decoration: none;
+            color: #007bff; /* 蓝色链接 */
+            font-weight: bold; /* 加粗字体 */
+        }
+        .navbar ul li a:hover {
+            text-decoration: underline; /* 悬停时下划线 */
+        }
+        .navbar .signup-button {
+            background-color: #28a745; /* 绿色背景 */
+            color: white; /* 白色文字 */
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold; /* 加粗字体 */
+        }
 
         .container {
             padding: 20px;
@@ -111,10 +150,17 @@
     </style>
 </head>
 <body>
-    <header>
+    <div class="navbar">
         <h1>China & Africa.com</h1>
-        <div class="user-info">Hi, Jack</div>
-    </header>
+        <ul>
+            <li>                  </li>
+            <li>                  </li>
+            <li><a href=Menu.html> <img src="assets/images(1)/images/Group 89.png" alt="User Icon" style="width: 22px; height: 22px;"></a></li>
+            <li><a href="#"><img src="assets/images(1)/images/Vector-1.png" alt=User Icon" style="width: 22px; height: 22px;"></a></li>
+            <li><a href="#"><img src="assets/images(1)/images/Union.png" alt="User Icon" style="width: 22px; height: 22px;"></a></li>
+        </ul>
+        <button class="user-info">Hi, Jack</button>
+    </div>
     <div class="container">
         <div class="search-bar">
             <input type="text" placeholder="SEARCH">

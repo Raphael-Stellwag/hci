@@ -221,8 +221,8 @@
         
         <input type="text" list="state-list" id="state" class="input-short" placeholder="State/Province/County/District" required>
         <datalist id="state-list">
-            <option>State 1</option>
-            <option>State 2</option>
+            <option>North Africa</option>
+            <option>South Africa</option>
             <option>Add more</option>
         </datalist>
 
@@ -233,22 +233,41 @@
     <div class="form-group">
         <label>Choose your goal *</label>
         <div class="goal-buttons">
-            <button type="button">Choose your goal</button>
-            <button type="button">Choose your goal</button>
-            <button type="button">Choose your goal</button>
+            <button type="button" class="goal-button">Automobile manufacturing</button>
+            <button type="button" class="goal-button">Electronics and electrical manufacturing</button>
+            <button type="button" class="goal-button">Shipbuilding</button>
         </div>
         <div class="goal-buttons">
-            <button type="button">Choose your goal</button>
-            <button type="button">Choose your goal</button>
+            <button type="button" class="goal-button">Chemical manufacturing</button>
+            <button type="button" class="goal-button">Aerospace manufacturing</button>
         </div>
     </div>
-
 
     <div id="drop-area">
         <p><img src="assets/icons/upload.svg" style="width: 30px; vertical-align: middle; color: black;"> REOUlRED: Drag & Drop or Click to add 1 profile picture maximum (5MB limit). More can be added later!</p>
         <input type="file" id="file-input" name="file" accept="image/*"/>
     </div>
-
+    <script>
+        // ... existing code ...
+    
+        // Add event listeners to goal buttons
+        const goalButtons = document.querySelectorAll('.goal-button');
+        goalButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove 'active' class from all buttons
+                goalButtons.forEach(btn => btn.classList.remove('active'));
+                // Add 'active' class to the clicked button
+                button.classList.add('active');
+            });
+        });
+    </script>
+    
+    <style>
+        .goal-button.active {
+            background-color: #569ccb; /* 点击后保持的颜色 */
+            color: white; /* 点击后文字颜色 */
+        }
+    </style>
     <script>
         const dropArea = document.getElementById('drop-area');
         const fileInput = document.getElementById('file-input');
