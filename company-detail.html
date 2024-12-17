@@ -101,7 +101,6 @@
 
         .favorited {
             color: #FFD700;
-            border: 2px solid #FFD700;
         }
     </style>
 </head>
@@ -121,8 +120,15 @@
                 </div>
                 <span id="company-main-products" class="company-main-products">Main Products</span>
                 <br><br>
-                <span >Service Guarentees:</span>
-                <ul id="company-service-guarentees" class="company-service-guarentees"></ul>
+                <div>
+                    <div #leftSide>
+                        <span >Service Guarantees:</span>
+                        <ul id="company-service-Guarantees" class="company-service-Guarantees"></ul>
+                    </div>
+                    <div #rightSide>
+                        <img style="width: 300px;" src="assets/images/image.png">
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -144,12 +150,12 @@
 
             document.getElementById("company-main-products").innerText = mainProducts;
 
-            serviceGuarentees = "";
-            company.serviceGuarentees.forEach(element => {
-                serviceGuarentees+="<li>" + element + "</li>"
+            serviceGuarantees = "";
+            company.serviceGuarantees.forEach(element => {
+                serviceGuarantees+="<li>" + element + "</li>"
             });
 
-            document.getElementById("company-service-guarentees").innerHTML = serviceGuarentees
+            document.getElementById("company-service-Guarantees").innerHTML = serviceGuarantees
         </script>
 
         <br>

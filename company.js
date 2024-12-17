@@ -13,9 +13,9 @@ function renderCompanies() {
         let currentProductIndex = 0;
 
         let mainProducts = company.mainProducts.join(", ")
-        let serviceGuarentees = "";
-        company.serviceGuarentees.forEach((serviceGuarentee, serviceGuarenteeIndex) => {
-            serviceGuarentees += `<li>${serviceGuarentee}</li>`;
+        let serviceGuarantees = "";
+        company.serviceGuarantees.forEach((serviceGuarentee, serviceGuarenteeIndex) => {
+            serviceGuarantees += `<li>${serviceGuarentee}</li>`;
         })
 
         // Render the first product
@@ -31,7 +31,7 @@ function renderCompanies() {
                 <p class="company-main-products">Main products: ${mainProducts}</p>
                 <p class="company-service-guarantees-description">SERVICE GUARANTEE</p>
                 <ul class="company-service-guarantees">
-                    ${serviceGuarentees}
+                    ${serviceGuarantees}
                 </ul>
             </div>
             <div class="product-image">

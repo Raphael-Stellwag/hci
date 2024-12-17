@@ -9,7 +9,7 @@ const products = [
             "rugged tablet computers", 
             "Android barcode scanners"
         ],
-        serviceGuarentees: [
+        serviceGuarantees: [
             "With raw material traceability mark",
             "RoHS"
         ],
@@ -29,7 +29,7 @@ const products = [
             "mobile phone case", 
             "second hand phone"
         ],
-        serviceGuarentees: [
+        serviceGuarantees: [
             "With raw material traceability mark",
             "RoHS"
         ],
@@ -48,7 +48,7 @@ const products = [
             "mobile phone case", 
             "second hand phone"
         ],
-        serviceGuarentees: [
+        serviceGuarantees: [
             "Support ODM service",
             "Finished product inspection"
         ],
@@ -68,7 +68,7 @@ const products = [
             "rugged tablet computers", 
             "Android barcode scanners"
         ],
-        serviceGuarentees: [
+        serviceGuarantees: [
             "Supplier evaluation process",
             "In-depth customization",
             "Finished product inspection"
@@ -89,7 +89,7 @@ const products = [
             "mobile phone case", 
             "second-hand phone"
         ],
-        serviceGuarentees: [
+        serviceGuarantees: [
             "Deep customization",
             "Support ODM service",
             "Light customization"
@@ -105,7 +105,7 @@ const products = [
         mainProducts: [
             "computers", "host computers", "data cables", "Bluetooth headsets", "second-hand phones"
         ],
-        serviceGuarentees: [
+        serviceGuarantees: [
             "OEM for big brands",
             "Supplier evaluation procedures",
             "Deep customization"
@@ -121,7 +121,7 @@ const products = [
         mainProducts: [
             "mobile phones", "tablet computers", "walkie-talkies", "rugged tablet computers", "Android barcode scanners"
         ],
-        serviceGuarentees: [
+        serviceGuarantees: [
             "Supplier evaluation process",
             "Deep customization",
             "Support ODM service"
@@ -137,7 +137,7 @@ const products = [
         mainProducts: [
             "workstations", "servers", "computers", "laptops", "computer parts"
         ],
-        serviceGuarentees: [
+        serviceGuarantees: [
             "Deep customization",
             "Support ODM service",
             "Light customization"
@@ -153,7 +153,7 @@ const products = [
         mainProducts: [
             "workstations", "servers", "computers", "laptops", "computer parts"
         ],
-        serviceGuarentees: [
+        serviceGuarantees: [
             "Support ODM service",
             "Supplier evaluation process",
             "Finished product inspection"
